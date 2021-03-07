@@ -9,3 +9,6 @@ So we're putting a type of log called "i" for info, which tells you that things 
 We add a tag that describes the log, and we can display that message in the Logcat.
 
 ``` Log.i("info", "Button is pressed");```
+
+OUTPUT:
+![1](https://github.com/RamziJabali/Android_Practices/blob/main/screenshots/Screen%20Shot%202021-03-06%20at%2010.44.28%20PM.png)
