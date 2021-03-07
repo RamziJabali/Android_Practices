@@ -1,6 +1,7 @@
 <h1 align="center">Learning Android</h1>
 <p align="center">
  
+#Log
 
 we're putting a line of code into Log, the log tells us what is going on behind the scenes when the app is running.
 
