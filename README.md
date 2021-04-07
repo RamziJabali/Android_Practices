@@ -55,4 +55,44 @@ OUTPUT:
 ![1](https://github.com/RamziJabali/Android_Practices/blob/main/screenshots/Screen%20Shot%202021-03-06%20at%2010.44.28%20PM.png)
 
 
+<h4 align="center">EditText</h4>
 
+```
+<EditText
+        android:id="@+id/nameEditText" //Edit text ID
+        android:layout_width="406dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="51dp"
+        android:ems="10"
+        android:hint="Your Name?"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+```
+
+To see what the user enters in the EditText box the log when the button is pressed we need to include it in the onCLick function we made
+
+We first need to make a EditText variable which has a type of `EditText` we will name it `nameEditText` and we'll set it equal to 
+
+the EditText box view and we'll need to use `findViewById()` to find that view. We need to use `R` to be able to acess resources
+
+and then we specify `id` and then the name of the EditText box id we made which is `nameEditText`.
+
+```
+EditText nameEditText = (EditText) findViewById(R.id.nameEditText);//it will return a view so we want to convert the View into an 
+                                                                     EditText
+```
+
+```
+ public void clickFunction(View view){
+        EditText nameEditText = (EditText) findViewById(R.id.nameEditText);
+        Log.i("info", "Button is pressed");
+        Log.i("Values" , nameEditText.getText().toString()); //gets the value of the variable nameEditText, then we convert it to a string!
+
+    }
+```
