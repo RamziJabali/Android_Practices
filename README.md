@@ -37,6 +37,8 @@ import android.view.View;
         app:layout_constraintTop_toTopOf="parent" />
 ```
 
+![1](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-07%20at%2012.23.56%20AM.png)
+
 we're putting a line of code into Log, the log tells us what is going on behind the scenes when the app is running.
 
 So we're putting a type of log called "i" for info, which tells you certaion information about your application.
@@ -52,7 +54,7 @@ public void clickFunction(View view){
 ```
 
 OUTPUT:
-![1](https://github.com/RamziJabali/Android_Practices/blob/main/screenshots/Screen%20Shot%202021-03-06%20at%2010.44.28%20PM.png)
+![2](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-03-06%20at%2010.44.28%20PM.png)
 
 
 <h4 align="center">EditText</h4>
@@ -75,6 +77,8 @@ OUTPUT:
         app:layout_constraintVertical_bias="1.0" />
 ```
 
+![3](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-07%20at%2012.24.07%20AM.png)
+
 To see what the user enters in the EditText box the log when the button is pressed we need to include it in the onCLick function we made
 
 We first need to make a EditText variable which has a type of `EditText` we will name it `nameEditText` and we'll set it equal to 
@@ -96,3 +100,7 @@ EditText nameEditText = (EditText) findViewById(R.id.nameEditText);//it will ret
 
     }
 ```
+![4](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-07%20at%2012.38.36%20AM.png)
+![5](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-07%20at%2012.06.06%20AM.png)
+
+
