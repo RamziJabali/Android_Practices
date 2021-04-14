@@ -170,6 +170,7 @@ EditText nameEditText = (EditText) findViewById(R.id.nameEditText);//it will ret
 
 <h4 align="center">Toast</h4>
 
+
 To use the Toast features you have to import the Toast class first
 ```
 import android.widget.Toast;
@@ -213,6 +214,6 @@ public void buttonOnClick(View view){
         image.setImageResource(R.drawable.eren);
     }
 ```
-<h2 align="ImageView">Example of changing an image onClick</h2>
+<h2 align="center">Example of changing an image onClick</h2>
 
 ![10](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageChange.gif)
