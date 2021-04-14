@@ -170,6 +170,7 @@ EditText nameEditText = (EditText) findViewById(R.id.nameEditText);//it will ret
 
 <h4 align="center">Toast</h4>
 
+
 To use the Toast features you have to import the Toast class first
 ```
 import android.widget.Toast;
@@ -184,3 +185,35 @@ Toast.makeText(this,"Hello "+userNameEditText.getText().toString(), Toast.LENGTH
 ```
 
 ![8](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-14%20at%2012.38.06%20PM.png)
+
+<h4 align="center">ImageView</h4>
+
+```
+ <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/aot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.551" />
+```
+
+![9](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageView.png)
+
+We can use the onClick function from the button to change the image of the ImageView.
+
+We use `setImageResource(R.id.<filename>);` to change the image of the `ImageView`
+Example
+```
+public void buttonOnClick(View view){
+        ImageView image = (ImageView) (findViewById(R.id.imageView));
+        image.setImageResource(R.drawable.eren);
+    }
+```
+<h2 align="center">Example of changing an image onClick</h2>
+
+![10](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageChange.gif)
