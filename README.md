@@ -168,3 +168,14 @@ EditText nameEditText = (EditText) findViewById(R.id.nameEditText);//it will ret
 ![7](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-07%20at%201.41.51%20PM.png)
 
 
+<h4 align="center">Toast</h4>
+
+To use the Toast features you have to import the Toast class first
+```
+import android.widget.Toast;
+```
+You can display a pop up using toast by using the following
+```
+Toast.makeText(<context>,<display message>, <Toast.LENGTH_SHORT>).show();
+```
+
