@@ -213,5 +213,6 @@ public void buttonOnClick(View view){
         image.setImageResource(R.drawable.eren);
     }
 ```
-<h2 align="ImageView">Example of chnaging image onClick</h2>
+<h2 align="ImageView">Example of changing an image onClick</h2>
+
 ![10](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageChange.gif)
