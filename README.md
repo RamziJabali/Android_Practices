@@ -201,8 +201,11 @@ Toast.makeText(this,"Hello "+userNameEditText.getText().toString(), Toast.LENGTH
         app:layout_constraintVertical_bias="0.551" />
 ```
 
+![9](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageView.png)
+
 We can use the onClick function from the button to change the image of the ImageView.
 
+We use `setImageResource(R.id.<filename>);` to change the image of the `ImageView`
 Example
 ```
 public void buttonOnClick(View view){
@@ -210,3 +213,5 @@ public void buttonOnClick(View view){
         image.setImageResource(R.drawable.eren);
     }
 ```
+<h2 align="ImageView">Example of chnaging image onClick</h2>
+![10](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageChange.gif)
