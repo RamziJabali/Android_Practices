@@ -6,18 +6,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
 
     public void loginButtonOnClick(View view){
         EditText userNameEditText = (EditText)(findViewById(R.id.editTextTextUserName));
-        EditText passwordEditText = (EditText)(findViewById(R.id.editTextPassword));
-
         Log.i("info", "Button Clicked");
-
         Log.i("UserName", userNameEditText.getText().toString());
-        Log.i("Password", passwordEditText.getText().toString());
+
+        Toast.makeText(this,"Hello "+userNameEditText.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
