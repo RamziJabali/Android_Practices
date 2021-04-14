@@ -186,7 +186,7 @@ Toast.makeText(this,"Hello "+userNameEditText.getText().toString(), Toast.LENGTH
 
 ![8](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-14%20at%2012.38.06%20PM.png)
 
-<h4 align="ImageView">ImageView</h4>
+<h4 align="center">ImageView</h4>
 
 ```
  <ImageView
