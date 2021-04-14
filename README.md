@@ -178,4 +178,8 @@ You can display a pop up using toast by using the following
 ```
 Toast.makeText(<context>,<display message>, <Toast.LENGTH_SHORT>).show();
 ```
+Displays the text typed in the ```EditText``` box.
+```
+Toast.makeText(this,"Hello "+userNameEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+```
 
