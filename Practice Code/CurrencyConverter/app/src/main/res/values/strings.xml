@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="ENTER_CURRENCY">Enter the amount you want to convert!</string>
+    <string name="CONVERT">CONVERT!</string>
+    <string name="ENTER_CURRENCY_VALUE">Enter Currency Value in Pounds</string>
+
+</resources>
