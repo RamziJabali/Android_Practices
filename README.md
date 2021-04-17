@@ -217,3 +217,87 @@ public void buttonOnClick(View view){
 <h2 align="center">Example of changing an image onClick</h2>
 
 ![10](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageChange.gif)
+
+<h1 align="center">Currency Changing Application</h1>
+
+<h2 align="center">XML</h2>
+
+```
+<ImageView
+        android:id="@+id/imageViewMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pounds"
+        app:layout_constraintBottom_toTopOf="@id/textViewCurrency"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ENTER_CURRENCY"
+        app:layout_constraintBottom_toTopOf="@id/buttonToConvert"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMoney" />
+
+    <EditText
+        android:id="@+id/userEditTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/ENTER_CURRENCY_VALUE"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrency"
+        app:layout_constraintBottom_toTopOf="@id/buttonToConvert"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/buttonToConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/CONVERT"
+        android:onClick="convertToDollarsOnButtonClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewCurrency" />
+
+```
+<h2 align="center">UI</h2>
+
+![11](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-16%20at%2011.03.14%20PM.png)
+
+<h2 align="center">Java</h2>
+
+This is the onClick function we covered
+
+```
+ public void convertToDollarsOnButtonClick(View view) {
+        EditText userText = (EditText) (findViewById(R.id.userEditTextView));
+        ImageView imageView = (ImageView) (findViewById(R.id.imageViewMoney));
+
+        Log.i("button clicked", "User Entry");
+
+        Toast.makeText(this, userText.getText().toString() + "£ is " + convertPoundsToDollars(Double.parseDouble(userText.getText().toString())) + "$", Toast.LENGTH_LONG).show();
+
+        imageView.setImageResource(R.drawable.money);
+
+    }
+```
+
+The function that's doing the converting 
+
+```
+private double convertPoundsToDollars(Double pounds) {
+        double dollarInPounds = 1.38;
+        return pounds * dollarInPounds;
+    }
+```
+
+<h2 align="center">OUTPUT</h2>
+
+![12](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/currencyConverter.gif)
