@@ -481,6 +481,16 @@ If you're using `if` as an expression, for example, for returning its value or a
 when defines a conditional expression with multiple branches.
 It is similar to the switch statement in C-like languages. 
 Its simple form looks like this.
+```
+fun describe(obj: Any): String =
+    when (obj) {
+        1          -> "One"
+        "Hello"    -> "Greeting"
+        is Long    -> "Long"
+        !is String -> "Not a string"
+        else       -> "Unknown"
+    }
+```
 
 ```
 when (x) {
@@ -491,6 +501,7 @@ when (x) {
     }
 }
 ```
+
 `when`matches its argument against all branches sequentially until some branch condition is satisfied.
 
 `when` can be used either as an expression or as a statement. If it is used as an expression, the value of the first matching branch becomes the value of the overall expression. If it is used as a statement, the values of individual branches are ignored. 
@@ -653,4 +664,173 @@ while (x > 0) {
 do {
     val y = retrieveData()
 } while (y != null) // y is visible here!
+```
+<h2 align="center">Ranges</h2>
+
+Check if a number is within a range using the `in` operator.
+
+```
+val x = 10
+val y = 9
+if (x in 1..y+1) {
+    println("fits in range")
+}
+```
+Check if a number is out of range.
+
+you can do NOT in as a means to check if something is out of range:
+
+`!in`
+
+```
+val list = listOf("a", "b", "c")
+
+if (-1 !in 0..list.lastIndex) {
+    println("-1 is out of range")
+}
+if (list.size !in list.indices) {
+    println("list size is out of valid list indices range, too")
+}
+```
+
+Iterate over a range.
+
+```
+for (x in 1..5) {
+    print(x)
+}
+```
+
+Or over a progression.
+
+```
+for (x in 1..10 step 2) {
+    print(x)
+}
+
+println()
+
+for (x in 9 downTo 0 step 3) {
+    print(x)
+}
+```
+
+<h2 align="center">Collections</h2>
+
+How to iterate over a collection
+
+```
+val items = listOf("apple", "banana", "kiwifruit")
+
+for(item in items){
+println(item)
+}
+```
+
+How to check if a collection contains an object using the `in` operator
+
+```
+when {
+    "orange" in items -> println("juicy")
+    "apple" in items -> println("apple is also juicy")
+}
+```
+
+Using lambda expressions to filter and map collections:
+
+```
+fun main() {
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+    fruits
+        .filter { it.startsWith("a") }
+        .sortedBy { it }
+        .map { it.uppercase() }
+        .forEach { println(it) }
+}
+```
+
+<h2 align="center">Nullable values and null checks</h2>
+
+A reference must be explicitly marked as nullable when `null` value is possible. Nullable type names have `?` at the end.
+
+Return `null` if `str` does not hold an integer:
+
+```
+fun parseInt(Str: String): Int?{
+
+}
+```
+
+Use a function returning nullable value:
+
+```
+fun printProduct(arg1: String, arg2: String) {
+    val x = parseInt(arg1)
+    val y = parseInt(arg2)
+
+    // Using `x * y` yields error because they may hold nulls.
+    if (x != null && y != null) {
+        // x and y are automatically cast to non-nullable after null check
+        println(x * y)
+    }
+    else {
+        println("'$arg1' or '$arg2' is not a number")
+    }    
+}
+```
+
+or
+
+```
+if (x == null) {
+    println("Wrong number format in arg1: '$arg1'")
+    return
+}
+if (y == null) {
+    println("Wrong number format in arg2: '$arg2'")
+    return
+}
+
+// x and y are automatically cast to non-nullable after null check
+println(x * y)
+```
+
+<h2 align="center">Type checks and automatic casts</h2>
+
+The `is` operator checks if an expression is an instance of a type. If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
+
+```
+fun getStringLength(obj: Any): Int? {
+    if (obj is String) {
+        // `obj` is automatically cast to `String` in this branch
+        return obj.length
+    }
+
+    // `obj` is still of type `Any` outside of the type-checked branch
+    return null
+}
+```
+
+or 
+
+```
+fun getStringLength(obj: Any): Int? {
+    if (obj !is String) return null
+
+    // `obj` is automatically cast to `String` in this branch
+    return obj.length
+}
+```
+
+or 
+
+```
+fun getStringLength(obj: Any): Int? {
+    // `obj` is automatically cast to `String` on the right-hand side of `&&`
+    if (obj is String && obj.length > 0) {
+        return obj.length
+    }
+
+    return null
+}
 ```
