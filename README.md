@@ -301,3 +301,60 @@ private double convertPoundsToDollars(Double pounds) {
 <h2 align="center">OUTPUT</h2>
 
 ![12](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/currencyConverter.gif)
+
+<h1 align="center">Kotlin</h1>
+
+
+<h2 align="center">Print</h2>
+
+In Kotlin the exection of the instructions begin with the `main` method.
+
+```
+fun main(){
+   println("Hello world!")
+}
+```
+
+Similar to Java Kotlin uses the keyword `print` and `println` to print is arguments to the output.
+
+```
+fun main(){ 
+   print("Hello")
+   println(" people!")
+   print(2021)// Adds a line so that the text appears on the next line
+}
+```
+
+<h2 align="center">Functions</h2>
+
+The function below has two parameters of type `Int` and has a return type of `Int` as well.
+
+```
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+A function body can be an expression. Its return type is inferred. Like so:
+
+```
+fun sum(a: Int, b: Int) = a + b
+
+fun main() {
+    println("sum of 19 and 23 is ${sum(19, 23)}")
+}
+
+//OutPut
+//sum of 19 and 23 is 42
+```
+
+You can also make functions that do not return any value
+
+```
+fun printSum(a: Int, b: Int): Unit {
+    println("sum of $a and $b is ${a + b}")
+}
+```
+
+<h2 align="center">Variables</h2>
+
