@@ -837,6 +837,21 @@ fun getStringLength(obj: Any): Int? {
 
 <h2 align="center">Basic types in Kotlin</h2>
 
+<h2 align="center">Arrays</h2>
+
+Different ways to define and initialize an array in Kotlin
+
+```
+    var x: IntArray = intArrayOf(1, 2, 3) // [1, 2, 3]
+    var y = IntArray(5) //has a size of 5, but all elements are 0
+    
+    //[42, 42, 42, 42, 42]
+    val arr = IntArray(5) { 42 } // has a size of 5 with all elements of value 42
+
+    // e.g. initialise the values in the array using a lambda
+    // Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)
+    var arr2 = IntArray(5) { it * 2 }
+```
 https://kotlinlang.org/docs/basic-types.html#numbers
 
 
