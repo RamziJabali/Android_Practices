@@ -217,3 +217,643 @@ public void buttonOnClick(View view){
 <h2 align="center">Example of changing an image onClick</h2>
 
 ![10](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/ImageChange.gif)
+
+<h1 align="center">Currency Changing Application</h1>
+
+<h2 align="center">XML</h2>
+
+```
+<ImageView
+        android:id="@+id/imageViewMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pounds"
+        app:layout_constraintBottom_toTopOf="@id/textViewCurrency"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ENTER_CURRENCY"
+        app:layout_constraintBottom_toTopOf="@id/buttonToConvert"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMoney" />
+
+    <EditText
+        android:id="@+id/userEditTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/ENTER_CURRENCY_VALUE"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrency"
+        app:layout_constraintBottom_toTopOf="@id/buttonToConvert"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/buttonToConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/CONVERT"
+        android:onClick="convertToDollarsOnButtonClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewCurrency" />
+
+```
+<h2 align="center">UI</h2>
+
+![11](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/Screen%20Shot%202021-04-16%20at%2011.03.14%20PM.png)
+
+<h2 align="center">Java</h2>
+
+This is the onClick function we covered
+
+```
+ public void convertToDollarsOnButtonClick(View view) {
+        EditText userText = (EditText) (findViewById(R.id.userEditTextView));
+        ImageView imageView = (ImageView) (findViewById(R.id.imageViewMoney));
+
+        Log.i("button clicked", "User Entry");
+
+        Toast.makeText(this, userText.getText().toString() + "£ is " + convertPoundsToDollars(Double.parseDouble(userText.getText().toString())) + "$", Toast.LENGTH_LONG).show();
+
+        imageView.setImageResource(R.drawable.money);
+
+    }
+```
+
+The function that's doing the converting 
+
+```
+private double convertPoundsToDollars(Double pounds) {
+        double dollarInPounds = 1.38;
+        return pounds * dollarInPounds;
+    }
+```
+
+<h2 align="center">OUTPUT</h2>
+
+![12](https://github.com/RamziJabali/Learning_Android/blob/main/screenshots/currencyConverter.gif)
+
+<h1 align="center">Kotlin</h1>
+
+
+<h2 align="center">Print</h2>
+
+In Kotlin the exection of the instructions begin with the `main` method.
+
+```
+fun main(){
+   println("Hello world!")
+}
+```
+
+Similar to Java Kotlin uses the keyword `print` and `println` to print is arguments to the output.
+
+```
+fun main(){ 
+   print("Hello")
+   println(" people!")
+   print(2021)// Adds a line so that the text appears on the next line
+}
+```
+
+<h2 align="center">Functions</h2>
+
+The function below has two parameters of type `Int` and has a return type of `Int` as well.
+
+```
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+A function body can be an expression. Its return type is inferred. Like so:
+
+```
+fun sum(a: Int, b: Int) = a + b
+
+fun main() {
+    println("sum of 19 and 23 is ${sum(19, 23)}")
+}
+
+//OutPut
+//sum of 19 and 23 is 42
+```
+
+You can also make functions that do not return any value
+
+```
+fun printSum(a: Int, b: Int): Unit {
+    println("sum of $a and $b is ${a + b}")
+}
+```
+
+<h2 align="center">Variables</h2>
+
+Read-only local variables are defined using the keyword `val`. They can be assigned a value only once. 
+Which is like Java's `final` keyword.
+
+```
+val a: Int = 1  // immediate assignment
+val b = 2   // `Int` type is inferred
+val c: Int  // Type required when no initializer is provided
+c = 3       // deferred assignment
+```
+Variables that can be reassigned use the `var` keyword.
+
+```
+var x = 5 // `Int` type is inferred
+x += 1
+```
+
+You can declare variables globaly as well.
+
+```
+val PI = 3.14
+var x = 0
+
+fun incrementX() { 
+    x += 1 
+}
+```
+
+<h2 align="center">Creating Classes and Instances</h2>
+
+The keyword `class` is used to define a class like Java.
+
+`class House` 
+
+The properties of a class can be listed within it's declaration or body.
+
+```
+class Rectangle(var height: Double, var length: Double) {
+    var perimeter = (height + length) * 2
+}
+```
+
+The default constructor with parameters listed in the class declaration is available automatically.
+
+```
+class Rectangle(var height: Double, var length: Double) {
+    var perimeter = (height + length) * 2 
+}
+
+fun main() {
+    val rectangle = Rectangle(5.0, 2.0)
+    println("The perimeter is ${rectangle.perimeter}")
+}
+
+//The perimeter is 14.0
+```
+
+Inheritance between classes is declared by a colon (`:`). 
+Classes are final by default; to make a class inheritable, mark it as `open`.
+
+```
+open class Shape
+
+class Rectangle(var height: Double, var length: Double): Shape() {
+    var perimeter = (height + length) * 2
+}
+```
+
+<h2 align="center">String Templates</h2>
+
+```
+var a = 1
+// simple name in template:
+val s1 = "a is $a" 
+
+a = 2
+// arbitrary expression in template:
+val s2 = "${s1.replace("is", "was")}, but now is $a"
+
+//a was 1, but now is 2
+```
+<h2 align="center">Conditional Expressions</h2>
+
+<h3 align="center">If statement</h3>
+
+```
+fun maxOf(a: Int, b: Int): Int {
+    if (a > b) {
+        return a
+    } else {
+        return b
+    }
+}
+```
+
+In Kotlin, `if` can also be used as an expression.
+
+```
+fun maxOf(a: Int, b: Int) = if (a > b) a else b
+
+// As expression
+val max = if (a > b) a else b
+```
+
+Branches of if branches can be blocks. In this case, the last expression is the value of a block:
+
+```
+val max = if (a > b) {
+    print("Choose a")
+    a
+} else {
+    print("Choose b")
+    b
+}
+```
+
+If you're using `if` as an expression, for example, for returning its value or assigning it to a variable, the else branch is mandatory.
+
+
+<h3 align="center">When expression</h3>
+
+when defines a conditional expression with multiple branches.
+It is similar to the switch statement in C-like languages. 
+Its simple form looks like this.
+```
+fun describe(obj: Any): String =
+    when (obj) {
+        1          -> "One"
+        "Hello"    -> "Greeting"
+        is Long    -> "Long"
+        !is String -> "Not a string"
+        else       -> "Unknown"
+    }
+```
+
+```
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> { // Note the block
+        print("x is neither 1 nor 2")
+    }
+}
+```
+
+`when`matches its argument against all branches sequentially until some branch condition is satisfied.
+
+`when` can be used either as an expression or as a statement. If it is used as an expression, the value of the first matching branch becomes the value of the overall expression. If it is used as a statement, the values of individual branches are ignored. 
+
+The `else` branch is evaluated if none of the other branch conditions are satisfied. 
+If `when` is used as an expression, the `else` branch is mandatory, unless the compiler can prove that all possible cases are covered with branch conditions, for example, with `enum` class entries and sealed class subtypes).
+
+The way to define a common behavior for multiple cases is by using a comma `,` that allows you to combine the cases in a single line.
+
+```
+when(x){
+ 0, 1 -> print ("x == 0 or x ==1")
+ else -> print ("otherwise")
+}
+```
+
+You can use arbitrary expressions (not only constants) as branch conditions
+
+```
+when (x) {
+    parseInt(s) -> print("s encodes x")
+    else -> print("s does not encode x")
+}
+```
+
+You can also check a value for being in or !in a range or a collection:
+
+```
+when (x) {
+    in 1..10 -> print("x is in the range")
+    in validNumbers -> print("x is valid")
+    !in 10..20 -> print("x is outside the range")
+    else -> print("none of the above")
+}
+```
+
+Another option is checking that a value is or !is of a particular type. 
+
+```
+fun hasPrefix(x: Any) = when(x) {
+    is String -> x.startsWith("prefix")
+    else -> false
+}
+```
+
+`when` can also be used as a replacement for an `if`-`else` `if` chain. If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
+
+```
+when {
+    x.isOdd() -> print("x is odd")
+    y.isEven() -> print("y is even")
+    else -> print("x+y is odd")
+}
+```
+
+
+```
+fun hasPrefix(x: Any) = when(x) {
+    is String -> x.startsWith("prefix")
+    else -> false
+}
+```
+
+<h3 align="center">For Loop</h3>
+
+The syntax for the For Loop
+
+```
+for(item in colection) print(item)
+```
+
+The body of a `for` can be a block
+
+```
+for (item: Int in ints){
+ //block of code
+}
+```
+
+As mentioned before, for iterates through anything that provides an iterator.
+
+This means that it:
+
+has a member or an extension function `iterator()` that returns `Iterator<>`:
+
+has a member or an extension function `next()`
+
+has a member or an extension function `hasNext()` that returns `Boolean`.
+
+All of these three functions need to be marked as `operator`.
+
+To iterate over a range of numbers, use a range expression:
+
+```
+for (i in 1..3) {
+        println(i)
+    }
+    for (i in 6 downTo 0 step 2) {
+        println(i)
+    }
+```
+
+```
+val items = listOf("apple", "banana", "kiwifruit")
+    for (item in items) {
+        println(item)
+     }
+//or
+
+val items = listOf("apple", "banana", "kiwifruit")
+for (index in items.indices) {
+    println("item at $index is ${items[index]}")
+}
+```
+
+A `for` loop over a range or an array is compiled to an index-based loop that does not create an iterator object.
+
+If you want to iterate through an array or a list with an index, you can do it this way:
+
+```
+for (i in array.indices) {
+    println(array[i])
+}
+```
+Alternatively, you can use the `withIndex` library function:
+
+```
+fun main() {
+    val array = arrayOf("a", "b", "c")
+    for ((index, value) in array.withIndex()) {
+        println("the element at $index is $value")
+    }
+}
+```
+
+
+
+<h3 align="center">While Loop</h3>
+
+while and do-while loops execute their body continuously while their condition is satisfied. The difference between them is the condition checking time:
+
+while checks the condition and, if it's satisfied, executes the body and then returns to the condition check.
+
+do-while executes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of do-while executes at least once regardless of the condition.
+
+```
+val items = listOf("apple", "banana", "kiwifruit")
+var index = 0
+while (index < items.size) {
+    println("item at $index is ${items[index]}")
+    index++
+}
+```
+
+```
+while (x > 0) {
+    x--
+}
+
+do {
+    val y = retrieveData()
+} while (y != null) // y is visible here!
+```
+<h2 align="center">Ranges</h2>
+
+Check if a number is within a range using the `in` operator.
+
+```
+val x = 10
+val y = 9
+if (x in 1..y+1) {
+    println("fits in range")
+}
+```
+Check if a number is out of range.
+
+you can do NOT in as a means to check if something is out of range:
+
+`!in`
+
+```
+val list = listOf("a", "b", "c")
+
+if (-1 !in 0..list.lastIndex) {
+    println("-1 is out of range")
+}
+if (list.size !in list.indices) {
+    println("list size is out of valid list indices range, too")
+}
+```
+
+Iterate over a range.
+
+```
+for (x in 1..5) {
+    print(x)
+}
+```
+
+Or over a progression.
+
+```
+for (x in 1..10 step 2) {
+    print(x)
+}
+
+println()
+
+for (x in 9 downTo 0 step 3) {
+    print(x)
+}
+```
+
+<h2 align="center">Collections</h2>
+
+How to iterate over a collection
+
+```
+val items = listOf("apple", "banana", "kiwifruit")
+
+for(item in items){
+println(item)
+}
+```
+
+How to check if a collection contains an object using the `in` operator
+
+```
+when {
+    "orange" in items -> println("juicy")
+    "apple" in items -> println("apple is also juicy")
+}
+```
+
+Using lambda expressions to filter and map collections:
+
+```
+fun main() {
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+    fruits
+        .filter { it.startsWith("a") }
+        .sortedBy { it }
+        .map { it.uppercase() }
+        .forEach { println(it) }
+}
+```
+
+<h2 align="center">Nullable values and null checks</h2>
+
+A reference must be explicitly marked as nullable when `null` value is possible. Nullable type names have `?` at the end.
+
+Return `null` if `str` does not hold an integer:
+
+```
+fun parseInt(Str: String): Int?{
+
+}
+```
+
+Use a function returning nullable value:
+
+```
+fun printProduct(arg1: String, arg2: String) {
+    val x = parseInt(arg1)
+    val y = parseInt(arg2)
+
+    // Using `x * y` yields error because they may hold nulls.
+    if (x != null && y != null) {
+        // x and y are automatically cast to non-nullable after null check
+        println(x * y)
+    }
+    else {
+        println("'$arg1' or '$arg2' is not a number")
+    }    
+}
+```
+
+or
+
+```
+if (x == null) {
+    println("Wrong number format in arg1: '$arg1'")
+    return
+}
+if (y == null) {
+    println("Wrong number format in arg2: '$arg2'")
+    return
+}
+
+// x and y are automatically cast to non-nullable after null check
+println(x * y)
+```
+
+<h2 align="center">Type checks and automatic casts</h2>
+
+The `is` operator checks if an expression is an instance of a type. If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
+
+```
+fun getStringLength(obj: Any): Int? {
+    if (obj is String) {
+        // `obj` is automatically cast to `String` in this branch
+        return obj.length
+    }
+
+    // `obj` is still of type `Any` outside of the type-checked branch
+    return null
+}
+```
+
+or 
+
+```
+fun getStringLength(obj: Any): Int? {
+    if (obj !is String) return null
+
+    // `obj` is automatically cast to `String` in this branch
+    return obj.length
+}
+```
+
+or 
+
+```
+fun getStringLength(obj: Any): Int? {
+    // `obj` is automatically cast to `String` on the right-hand side of `&&`
+    if (obj is String && obj.length > 0) {
+        return obj.length
+    }
+
+    return null
+}
+```
+
+<h2 align="center">Basic types in Kotlin</h2>
+
+<h2 align="center">Arrays</h2>
+
+Different ways to define and initialize an array in Kotlin
+
+```
+    var x: IntArray = intArrayOf(1, 2, 3) // [1, 2, 3]
+    var y = IntArray(5) //has a size of 5, but all elements are 0
+    
+    //[42, 42, 42, 42, 42]
+    val arr = IntArray(5) { 42 } // has a size of 5 with all elements of value 42
+
+    // e.g. initialise the values in the array using a lambda
+    // Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)
+    var arr2 = IntArray(5) { it * 2 }
+```
+https://kotlinlang.org/docs/basic-types.html#numbers
+
+
+
+
