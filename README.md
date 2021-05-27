@@ -834,3 +834,11 @@ fun getStringLength(obj: Any): Int? {
     return null
 }
 ```
+
+<h2 align="center">Basic types in Kotlin</h2>
+
+https://kotlinlang.org/docs/basic-types.html#numbers
+
+
+
+
