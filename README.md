@@ -304,6 +304,10 @@ private double convertPoundsToDollars(Double pounds) {
 
 <h1 align="center">Kotlin</h1>
 
+<h2 align="center">Unit</h2>
+
+`Unit` in Kotlin corresponds to the void in Java. Like void, `Unit` is the return type of any function that does not return any meaningful value, and it is optional to mention the `Unit` as the return type. But unlike void, `Unit` is a real class (Singleton) with only one instance.Aug 25, 2017
+
 
 <h2 align="center">Print</h2>
 
@@ -326,6 +330,10 @@ fun main(){
 ```
 
 <h2 align="center">Functions</h2>
+
+Calling member functions uses the dot notation:
+
+`Stream().read() // create instance of class Stream and call read()`
 
 The function below has two parameters of type `Int` and has a return type of `Int` as well.
 
@@ -355,6 +363,127 @@ fun printSum(a: Int, b: Int): Unit {
     println("sum of $a and $b is ${a + b}")
 }
 ```
+
+```
+fun printMessage(message: String): Unit {                               // 1
+    println(message)
+}
+
+fun printMessageWithPrefix(message: String, prefix: String = "Info") {  // 2
+    println("[$prefix] $message")
+}
+
+fun sum(x: Int, y: Int): Int {                                          // 3
+    return x + y
+}
+
+fun multiply(x: Int, y: Int) = x * y                                    // 4
+
+fun main() {
+    printMessage("What's up")                                               // 5                    
+    printMessageWithPrefix("Hello", "Log")                              // 6
+    printMessageWithPrefix("Hello")                                     // 7
+    printMessageWithPrefix(prefix = "Log", message = "Hello")           // 8
+    println(sum(1, 2))                                                  // 9
+    println(multiply(2, 4))                                             // 10
+}
+
+/*
+OutPut:
+What's up
+[Log] Hello
+[Info] Hello
+[Log] Hello
+3
+8
+```
+1) A simple function that takes a parameter of type `String` and returns `Unit` (i.e., no return value).
+2) A function that takes a second optional parameter with default value `Info`. The return type is omitted, meaning that it's actually `Unit`.
+3) A function that returns an integer.
+4) A single-expression function that returns an integer (inferred).
+5) Calls the first function with the argument `Hello`.
+6) Calls the function with two parameters, passing values for both of them.
+7) Calls the same function omitting the second one. The default value `Info` is used.
+8) Calls the same function using named arguments and changing the order of the arguments.
+9)Prints the result of the `sum` function call.
+10) Prints the result of the `multiply` function call.
+
+
+<h3 align="center">Infix Functions</h3>
+
+What is infix function?
+
+A function marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses for teh call). Infix functions must meet the following requirements.
+
+1) Member functions and extensions with a single parameter can be turned into infix functions.
+2) They must have single parameter
+3) The parameter must not accept variable number of arguments and must have no default value
+
+```
+infix fun Int.shl(x: Int): Int { ... }
+
+// calling the function using the infix notation
+1 shl 2
+
+// is the same as
+1.shl(2)
+```
+
+```
+fun main() {  
+  infix fun Int.times(str: String) = str.repeat(this)        // 1
+  println(2 times "Bye ")//OUTPUT: Bye Bye                   // 2
+
+  val pair = "Ferrari" to "Katrina"                          // 3
+  println(pair) // OUTPUT: (Ferrari, Katrina) 
+  
+  infix fun Int.plus(number: Int) = number + this
+  println(1 plus 2) // 3
+  
+  infix fun String.onto(other: String) = Pair(this, other)   // 4
+  val myPair = "McLaren" onto "Lucas"
+  println(myPair)
+  
+  val sophia = Person("Sophia")
+  val claudia = Person("Claudia")
+  sophia likes claudia                                       // 5
+}
+  class Person(val name: String) {
+  val likedPeople = mutableListOf<Person>()
+  infix fun likes(other: Person) { likedPeople.add(other) }  // 6
+}
+```
+
+1) Defines an infix extension function on `Int`.
+2) Calls the `infix` function.
+3) Creates a `Pair` by calling the infix function `to` from the standard library.
+4) Here's your own implementation of  `to` creatively called `onto`.
+5) Infix notation also works on members functions (methods).
+6) The containing class becomes the first parameter.
+
+<h3 align="center">Operator Functions</h3>
+
+Certain functions can be "upgraded" to operators, allowing their calls with the corresponding operator symbol.
+
+```
+    operator fun Int.times(str: String) = str.repeat(this)       // 1
+    println(2 * "Bye ")                                          // 2
+    //Bye Bye 
+    
+    operator fun String.get(range: IntRange) = substring(range)  // 3
+    val str = "Always forgive your enemies; nothing annoys them so much."
+    println(str[0..14])//says display from element 0 -> 14
+    //Always forgive // it's the number of characters to display 
+```
+1) This takes the infix function from above one step further using the `operator` modifier.
+2) The operator symbol for `times()` is `*` so that you can call the function using `2 * "Bye"`.
+3) An operator function allows easy range access on strings.
+4) The `get()` operator enables bracket-access syntax.
+
+
+<h3 align ="center">Functions with `vararg` Parameters</h3>
+
+
 
 <h2 align="center">Variables</h2>
 
