@@ -1086,3 +1086,45 @@ Sets `null` value to the nullable variable
 If a function has a parameter that is not nullable and you pass it a nullable variable it will produce a compiler error.
  
  
+<h2 align="center">Generics in Kotlin</h2>
+ 
+<h3 align="center">Generic classes</h3>
+
+```
+class MutableStack<E>(vararg items: E) {              // 1
+
+  private val elements = items.toMutableList()
+
+  fun push(element: E) = elements.add(element)        // 2
+
+  fun peek(): E = elements.last()                     // 3
+
+  fun pop(): E = elements.removeAt(elements.size - 1)
+
+  fun isEmpty() = elements.isEmpty()
+
+  fun size() = elements.size
+
+  override fun toString() = "MutableStack(${elements.joinToString()})"
+} 
+```
+1) Defines a generic class `MutableStack<E>` where `E is called the generic type parameter. At use-site, it is assigned to a specific type such as `Int` by declaring a `MutableStack<Int>`.
+2) Inside the generic class, `E` can be used as a parameter like any other type
+3) You can also use `E` as a return type
+ 
+ <h3 align="center">Generic Functions</h3>
+ 
+You can also generify functions if their logic is independent of a specific type. For instance, you can write a utility function to create mutable stacks:
+
+```
+fun <E> mutableStackOf(vararg elements: E) = MutableStack(*elements)
+
+fun main() {
+  val stack = mutableStackOf(0.62, 3.14, 2.7)
+  println(stack)
+}
+
+Note that the compiler can infer the generic type from the parameters of `mutableStackOf` so that you don't have to write `mutableStackOf<Double>(...)`.
+ 
+```
+ 
