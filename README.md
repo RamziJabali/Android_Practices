@@ -1025,7 +1025,7 @@ fun getStringLength(obj: Any): Int? {
 
 <h2 align="center">Basic types in Kotlin</h2>
 
-<h2 align="center">Arrays</h2>
+<h3 align="center">Arrays</h3>
 
 Different ways to define and initialize an array in Kotlin
 
@@ -1043,5 +1043,24 @@ Different ways to define and initialize an array in Kotlin
 https://kotlinlang.org/docs/basic-types.html#numbers
 
 
+<h2 align="center">Null in Kotlin</h2>
+ 
+Variables cannot be assigned `null` unless they are declared with the key symbol `?` at the end of the type.
 
+Cannot be null
 
+`var cannotBeNull: Int = null`
+
+Will produce a compiler error
+ 
+`var canBeNull: Int? = 2`
+ 
+We are declaring a nullable Int
+ 
+`canBeNull = null`
+
+Sets `null` value to the nullable variable
+ 
+If a function has a parameter that is not nullable and you pass it a nullable variable it will produce a compiler error.
+ 
+ 
