@@ -1123,8 +1123,7 @@ fun main() {
   val stack = mutableStackOf(0.62, 3.14, 2.7)
   println(stack)
 }
-
-Note that the compiler can infer the generic type from the parameters of `mutableStackOf` so that you don't have to write `mutableStackOf<Double>(...)`.
- 
 ```
  
+Note that the compiler can infer the generic type from the parameters of `mutableStackOf` so that you don't have to write `mutableStackOf<Double>(...)`.
+
