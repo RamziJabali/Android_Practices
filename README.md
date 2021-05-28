@@ -530,6 +530,21 @@ fun log(vararg entries: String) {
 
 
 <h2 align="center">Variables</h2>
+ 
+
+ 
+```
+var a: String = "initial"  // 1
+println(a)
+val b: Int = 1             // 2
+val c = 3                  // 3
+
+``` 
+1) Declares a mutable variable and initializes it.
+2) Declares an immutable variable and initializes it.
+3) Declares an immutable variable and initializes it without specifying the type. The  compiler infers the type Int.
+ 
+ 
 
 Read-only local variables are defined using the keyword `val`. They can be assigned a value only once. 
 Which is like Java's `final` keyword.
