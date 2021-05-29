@@ -849,7 +849,7 @@ fun main() {
 
 
 
-<h3 align="center">While Loop</h3>
+<h3 align="center">While Loop and do Do While</h3>
 
 while and do-while loops execute their body continuously while their condition is satisfied. The difference between them is the condition checking time:
 
