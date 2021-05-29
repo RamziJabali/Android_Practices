@@ -875,6 +875,24 @@ do {
     val y = retrieveData()
 } while (y != null) // y is visible here!
 ```
+<h3 align="center">Iterators</h3> 
+ 
+ Made for traversing a collection of elements.
+ 
+iterators – objects that provide access to the elements sequentially without exposing the underlying structure of the collection.
+ 
+You can define your own iterators in your classes by implementing the `iterator` operator in them.
+ 
+Once the iterator passes through the last element, it can no longer be used for retrieving elements; neither can it be reset to any previous position. To iterate through the collection again, create a new iterator.
+
+```
+val numbers = listOf("one", "two", "three", "four")
+val numbersIterator = numbers.iterator()
+while (numbersIterator.hasNext()) {
+    println(numbersIterator.next())
+}
+```
+
 <h2 align="center">Ranges</h2>
 
 Check if a number is within a range using the `in` operator.
