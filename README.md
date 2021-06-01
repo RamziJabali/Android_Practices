@@ -847,6 +847,21 @@ fun main() {
 }
 ```
 
+ How to iterate through a 2D array in Kotlin 
+ 
+ ```
+   for (row in Model.playerGrid) {
+        for(column in row){
+            print("[${column.player}]")
+        }
+        println()
+    }
+
+ output:
+[ ][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+ ```
 
 
 <h3 align="center">While Loop and do Do While</h3>
@@ -1205,3 +1220,5 @@ fun main() {
 ```
 1) `name` in the `Asiatic` declaration is neither a var nor val: it's a constructor argument, whose value is passed to the `name` property of the superclass `Lion`.
 2) Creates an `Asiatic` instance with the name `Rufo`. The call invokes the `Lion` constructor with arguments `Rufo` and `India`.
+ 
+
