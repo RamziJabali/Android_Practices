@@ -413,7 +413,7 @@ What's up
 
 What is infix function?
 
-A function marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses for teh call). Infix functions must meet the following requirements.
+A function marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses for the call). Infix functions must meet the following requirements.
 
 1) Member functions and extensions with a single parameter can be turned into infix functions.
 2) They must have single parameter
